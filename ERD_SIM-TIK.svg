@@ -1,0 +1,158 @@
+<svg width="1400" height="900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .entity-box { fill: #f8fafc; stroke: #3b82f6; stroke-width: 2; }
+      .entity-header { fill: #3b82f6; }
+      .entity-title { fill: white; font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; }
+      .field-text { fill: #1f2937; font-family: Arial, sans-serif; font-size: 12px; }
+      .pk-text { fill: #dc2626; font-weight: bold; }
+      .fk-text { fill: #059669; font-weight: bold; }
+      .relation-line { stroke: #6b7280; stroke-width: 1; fill: none; }
+      .relation-text { fill: #6b7280; font-family: Arial, sans-serif; font-size: 10px; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1400" height="900" fill="#ffffff"/>
+  
+  <!-- Title -->
+  <text x="700" y="30" text-anchor="middle" class="entity-title" style="font-size: 20px; fill: #1e40af;">ERD SISTEM INFORMASI MANAJEMEN TIK (SIM-TIK)</text>
+  
+  <!-- DIVISIONS Entity -->
+  <g id="divisions">
+    <rect x="50" y="80" width="200" height="140" class="entity-box" rx="5"/>
+    <rect x="50" y="80" width="200" height="30" class="entity-header" rx="5"/>
+    <text x="150" y="100" text-anchor="middle" class="entity-title">DIVISIONS</text>
+    <text x="60" y="130" class="field-text pk-text">PK id: BIGINT</text>
+    <text x="60" y="150" class="field-text">name: VARCHAR</text>
+    <text x="60" y="170" class="field-text">head_name: VARCHAR</text>
+    <text x="60" y="190" class="field-text">created_at: TIMESTAMP</text>
+    <text x="60" y="210" class="field-text">updated_at: TIMESTAMP</text>
+  </g>
+  
+  <!-- USERS Entity -->
+  <g id="users">
+    <rect x="350" y="80" width="200" height="180" class="entity-box" rx="5"/>
+    <rect x="350" y="80" width="200" height="30" class="entity-header" rx="5"/>
+    <text x="450" y="100" text-anchor="middle" class="entity-title">USERS</text>
+    <text x="360" y="130" class="field-text pk-text">PK id: BIGINT</text>
+    <text x="360" y="150" class="field-text">name: VARCHAR</text>
+    <text x="360" y="170" class="field-text">email: VARCHAR</text>
+    <text x="360" y="190" class="field-text">password: VARCHAR</text>
+    <text x="360" y="210" class="field-text">role: ENUM</text>
+    <text x="360" y="230" class="field-text fk-text">FK division_id: BIGINT</text>
+    <text x="360" y="250" class="field-text">email_verified_at: TIMESTAMP</text>
+  </g>
+  
+  <!-- CATEGORIES Entity -->
+  <g id="categories">
+    <rect x="650" y="80" width="200" height="120" class="entity-box" rx="5"/>
+    <rect x="650" y="80" width="200" height="30" class="entity-header" rx="5"/>
+    <text x="750" y="100" text-anchor="middle" class="entity-title">CATEGORIES</text>
+    <text x="660" y="130" class="field-text pk-text">PK id: BIGINT</text>
+    <text x="660" y="150" class="field-text">name: VARCHAR</text>
+    <text x="660" y="170" class="field-text">created_at: TIMESTAMP</text>
+    <text x="660" y="190" class="field-text">updated_at: TIMESTAMP</text>
+  </g>
+  
+  <!-- ASSETS Entity -->
+  <g id="assets">
+    <rect x="950" y="80" width="200" height="160" class="entity-box" rx="5"/>
+    <rect x="950" y="80" width="200" height="30" class="entity-header" rx="5"/>
+    <text x="1050" y="100" text-anchor="middle" class="entity-title">ASSETS</text>
+    <text x="960" y="130" class="field-text pk-text">PK id: BIGINT</text>
+    <text x="960" y="150" class="field-text">asset_tag: VARCHAR</text>
+    <text x="960" y="170" class="field-text">name: VARCHAR</text>
+    <text x="960" y="190" class="field-text fk-text">FK category_id: BIGINT</text>
+    <text x="960" y="210" class="field-text">serial_number: VARCHAR</text>
+    <text x="960" y="230" class="field-text">status: ENUM</text>
+  </g>
+  
+  <!-- TICKETS Entity -->
+  <g id="tickets">
+    <rect x="200" y="400" width="220" height="200" class="entity-box" rx="5"/>
+    <rect x="200" y="400" width="220" height="30" class="entity-header" rx="5"/>
+    <text x="310" y="420" text-anchor="middle" class="entity-title">TICKETS</text>
+    <text x="210" y="450" class="field-text pk-text">PK id: BIGINT</text>
+    <text x="210" y="470" class="field-text">subject: TEXT</text>
+    <text x="210" y="490" class="field-text">description: TEXT</text>
+    <text x="210" y="510" class="field-text fk-text">FK reporter_id: BIGINT</text>
+    <text x="210" y="530" class="field-text fk-text">FK technician_id: BIGINT</text>
+    <text x="210" y="550" class="field-text">priority: ENUM</text>
+    <text x="210" y="570" class="field-text">status: ENUM</text>
+    <text x="210" y="590" class="field-text fk-text">FK asset_id: BIGINT</text>
+  </g>
+  
+  <!-- ASSET_REQUESTS Entity -->
+  <g id="asset_requests">
+    <rect x="500" y="400" width="240" height="220" class="entity-box" rx="5"/>
+    <rect x="500" y="400" width="240" height="30" class="entity-header" rx="5"/>
+    <text x="620" y="420" text-anchor="middle" class="entity-title">ASSET_REQUESTS</text>
+    <text x="510" y="450" class="field-text pk-text">PK id: BIGINT</text>
+    <text x="510" y="470" class="field-text">name: VARCHAR</text>
+    <text x="510" y="490" class="field-text">asset_tag: VARCHAR</text>
+    <text x="510" y="510" class="field-text fk-text">FK category_id: BIGINT</text>
+    <text x="510" y="530" class="field-text">status: ENUM</text>
+    <text x="510" y="550" class="field-text">reason: TEXT</text>
+    <text x="510" y="570" class="field-text fk-text">FK user_id: BIGINT</text>
+    <text x="510" y="590" class="field-text fk-text">FK approved_by: BIGINT</text>
+    <text x="510" y="610" class="field-text">approved_at: TIMESTAMP</text>
+  </g>
+  
+  <!-- Relationships -->
+  <!-- DIVISIONS to USERS -->
+  <line x1="250" y1="150" x2="350" y2="150" class="relation-line"/>
+  <text x="300" y="145" class="relation-text">1:N</text>
+  
+  <!-- USERS to TICKETS (reporter) -->
+  <line x1="450" y1="260" x2="310" y2="400" class="relation-line"/>
+  <text x="380" y="330" class="relation-text">1:N (reports)</text>
+  
+  <!-- USERS to TICKETS (technician) -->
+  <line x1="470" y1="260" x2="330" y2="400" class="relation-line"/>
+  <text x="400" y="310" class="relation-text">1:N (assigns)</text>
+  
+  <!-- CATEGORIES to ASSETS -->
+  <line x1="850" y1="150" x2="950" y2="150" class="relation-line"/>
+  <text x="900" y="145" class="relation-text">1:N</text>
+  
+  <!-- CATEGORIES to TICKETS -->
+  <line x1="750" y1="200" x2="420" y2="400" class="relation-line"/>
+  <text x="585" y="300" class="relation-text">1:N</text>
+  
+  <!-- ASSETS to TICKETS -->
+  <line x1="1050" y1="240" x2="420" y2="500" class="relation-line"/>
+  <text x="735" y="370" class="relation-text">1:N</text>
+  
+  <!-- USERS to ASSET_REQUESTS (user) -->
+  <line x1="450" y1="260" x2="620" y2="400" class="relation-line"/>
+  <text x="535" y="330" class="relation-text">1:N (requests)</text>
+  
+  <!-- USERS to ASSET_REQUESTS (approver) -->
+  <line x1="470" y1="260" x2="640" y2="400" class="relation-line"/>
+  <text x="555" y="310" class="relation-text">1:N (approves)</text>
+  
+  <!-- CATEGORIES to ASSET_REQUESTS -->
+  <line x1="750" y1="200" x2="620" y2="400" class="relation-line"/>
+  <text x="685" y="300" class="relation-text">1:N</text>
+  
+  <!-- Legend -->
+  <g id="legend">
+    <rect x="50" y="700" width="300" height="120" fill="#f8fafc" stroke="#e5e7eb" stroke-width="1" rx="5"/>
+    <text x="60" y="720" class="field-text" style="font-weight: bold;">Legend:</text>
+    <text x="60" y="740" class="pk-text">PK = Primary Key</text>
+    <text x="60" y="760" class="fk-text">FK = Foreign Key</text>
+    <text x="60" y="780" class="field-text">1:N = One-to-Many Relationship</text>
+    <text x="60" y="800" class="field-text">ENUM = Enumerated Type (limited choices)</text>
+  </g>
+  
+  <!-- Data Types Info -->
+  <g id="datatypes">
+    <rect x="1050" y="700" width="300" height="120" fill="#f8fafc" stroke="#e5e7eb" stroke-width="1" rx="5"/>
+    <text x="1060" y="720" class="field-text" style="font-weight: bold;">Data Types:</text>
+    <text x="1060" y="740" class="field-text">BIGINT: Primary/Foreign Keys (AI)</text>
+    <text x="1060" y="760" class="field-text">VARCHAR: Text with length limit</text>
+    <text x="1060" y="780" class="field-text">TEXT: Unlimited text</text>
+    <text x="1060" y="800" class="field-text">TIMESTAMP: Date and time</text>
+  </g>
+</svg>

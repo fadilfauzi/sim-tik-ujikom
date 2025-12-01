@@ -1,0 +1,253 @@
+/* ============================================
+   DASHBOARD ANIMATIONS & STYLES
+   ============================================ */
+
+/* KEYFRAMES ANIMATIONS */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse-subtle {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* ANIMATION CLASSES */
+.header-section {
+    animation: fadeInDown 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.stat-card {
+    animation: fadeInUp 0.6s ease-out forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.stat-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.stat-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.stat-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.stat-card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.action-card {
+    animation: slideInLeft 0.7s ease-out forwards;
+}
+
+.action-card:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.action-card:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.action-card:nth-child(3) {
+    animation-delay: 0.7s;
+}
+
+.performance-card {
+    animation: scaleUp 0.6s ease-out forwards;
+}
+
+.performance-card:nth-child(1) {
+    animation-delay: 0.8s;
+}
+
+.performance-card:nth-child(2) {
+    animation-delay: 0.9s;
+}
+
+.icon-animate {
+    animation: float 3s ease-in-out infinite;
+    transition: all 0.3s ease;
+}
+
+.group:hover .icon-animate {
+    animation: float 1.5s ease-in-out infinite;
+}
+
+.status-dot {
+    animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* GRADIENT TITLES */
+.gradient-title {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-title.admin {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-title.user {
+    background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-title.technician {
+    background: linear-gradient(135deg, #f59e0b 0%, #dc2626 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* SECTION STYLING */
+.section-underline {
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.section-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+    border-radius: 9999px;
+}
+
+.section-underline.admin::after {
+    background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+}
+
+.section-underline.user::after {
+    background: linear-gradient(90deg, #10b981 0%, #06b6d4 100%);
+}
+
+.section-underline.technician::after {
+    background: linear-gradient(90deg, #f59e0b 0%, #dc2626 100%);
+}
+
+/* CARD STYLING */
+.stat-value {
+    font-size: 2.75rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+}
+
+.card-base {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(229, 231, 235, 0.5);
+}
+
+.card-base:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+.dark .card-base:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* PROGRESS BAR */
+.progress-bar {
+    height: 3px;
+    background: #e5e7eb;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.dark .progress-bar {
+    background: #374151;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 9999px;
+    transition: width 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* RESPONSIVE PADDING */
+@media (max-width: 768px) {
+    .stat-value {
+        font-size: 2rem;
+    }
+}
