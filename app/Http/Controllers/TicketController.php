@@ -15,24 +15,19 @@ class TicketController extends Controller
             $user = auth()->user();
 
             if ($user->role === 'admin') {
-                // Admin melihat semua tiket
                 $tickets = Ticket::with(['reporter', 'technician'])->latest()->get();
             } elseif ($user->role === 'technician') {
-                // Teknisi hanya melihat tiket yang ditugaskan padanya
                 $tickets = Ticket::where('technician_id', $user->id)
-                                 ->orWhereNull('technician_id') // Bisa juga melihat tiket yang belum ditugaskan (opsional)
+                                 ->orWhereNull('technician_id')
                                  ->with(['reporter', 'technician'])->latest()->get();
             } else {
-                // User/Pelapor hanya melihat tiket yang mereka buat
                 $tickets = Ticket::where('reporter_id', $user->id)->with(['reporter'])->latest()->get();
             }
             
             return view('ticket.index', compact('tickets', 'user'));
         } catch (\Exception $e) {
-            // Log error untuk debugging tapi tidak menampilkan ke user
             \Log::error("Error in TicketController::index(): " . $e->getMessage());
             
-            // Return error view yang user-friendly
             return view('errors.ticket', [
                 'message' => 'Terjadi kesalahan saat memuat tiket. Silakan coba lagi.',
                 'error' => $e->getMessage()
@@ -45,7 +40,6 @@ class TicketController extends Controller
      */
     public function create()
     {
-        // Hanya role 'user' yang boleh buat laporan
         if (auth()->user()->role !== 'user') {
             abort(403, 'Hanya user yang dapat membuat laporan.');
         }

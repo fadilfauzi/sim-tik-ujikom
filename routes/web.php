@@ -59,19 +59,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->middleware('role:admin,technician');
         
     
-    // --- Rute Profile Bawaan Breeze ---
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
-/*
-|--------------------------------------------------------------------------
-| Admin Group Routes (Hanya Role: Admin)
-|--------------------------------------------------------------------------
-| Rute ini dilindungi oleh middleware 'role:admin' untuk manajemen data master.
-*/
 
 Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(function () {
     
