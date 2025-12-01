@@ -1,59 +1,346 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🚔 SIM-TIK - Sistem Informasi Manajemen TIK Polres Garut
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Konsep Dari Web Yang Saya Buat
 
-## About Laravel
+SIM-TIK adalah Sistem Informasi Manajemen Teknologi Informasi dan Komunikasi yang dikembangkan khusus untuk Kepolisian Resor Garut. Sistem ini dirancang untuk mengelola aset TIK, tiket support, dan permintaan aset secara terintegrasi. SIM-TIK bertujuan untuk meningkatkan efisiensi pengelolaan infrastruktur TIK di lingkungan Polres Garut dengan proses yang terstruktur, transparan, dan mudah diakses.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🌐 Lokasi Polres Garut
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**📍 Alamat:** Jl. Jendral Sudirman No.204, Sucikaler, Kec. Karangpawitan, Kabupaten Garut, Jawa Barat 44182  
+**📞 Telepon:** (0262) 236415  
+**🌐 Website:** [www.polres-garut.polri.go.id](https://www.polres-garut.polri.go.id)
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## 🎯 Fitur Yang Tersedia
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 🔐 Authentication & Login
+- **Login Page** dengan branding POLRES Garut
+- **Multi Role Authentication** (Admin, Teknisi, User)
+- **Email Verification** untuk keamanan
+- **Password Reset** jika lupa password
 
-## Laravel Sponsors
+### 👨‍💼 Dashboard Admin
+- **Overview Dashboard** dengan statistik lengkap
+- **Manajemen Users** (Admin, Teknisi, User)
+- **Manajemen Aset** TIK lengkap
+- **Manajemen Kategori** aset
+- **Manajemen Tiket** support
+- **Approval Asset Request**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 🔧 Dashboard Teknisi  
+- **Tiket Assignment** otomatis
+- **Status Tracking** tiket
+- **Asset Management** terbatas
+- **Report Generation**
 
-### Premium Partners
+### 👤 Dashboard User
+- **Pengajuan Asset** request
+- **Tracking Status** pengajuan
+- **Tiket Support** creation
+- **Profile Management**
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 📋 Tiket Management
+- **Create Ticket** untuk laporan masalah
+- **Status Tracking** (Pending, Processing, Resolved)
+- **Priority Levels** (Low, Medium, High, Critical)
+- **Assignment System** ke teknisi
+- **History Log** lengkap
 
-## Contributing
+### 🖥️ Asset Management
+- **Asset Registration** dengan barcode
+- **Category Management** (Laptop, PC, Printer, dll)
+- **Status Tracking** (Baik, Rusak Ringan, Rusak Berat)
+- **Location Management**
+- **Maintenance History**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 👥 Multi User System
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 🔵 Admin
+- **Full Access** ke semua fitur
+- **User Management** lengkap
+- **Asset Management** penuh
+- **Ticket Oversight** semua tiket
+- **Report Generation** lengkap
+- **System Configuration**
 
-## Security Vulnerabilities
+### 🟢 Teknisi  
+- **Ticket Assignment** otomatis
+- **Asset Viewing** terbatas
+- **Status Updates** tiket
+- **Maintenance Records**
+- **Technical Reports**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 🟡 User
+- **Asset Request** submission
+- **Ticket Creation** untuk laporan
+- **Status Tracking** pengajuan
+- **Profile Management**
+- **Limited Viewing** aset
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 🗄️ Database Structure
+
+### 📊 Entity Relationship Diagram (ERD)
+
+![ERD SIM-TIK](ERD_SIM-TIK.svg)
+
+**Tabel Utama:**
+- **users** - Data pengguna dengan role-based access
+- **divisions** - Struktur organisasi
+- **categories** - Kategori aset TIK
+- **assets** - Data aset lengkap
+- **tickets** - Tiket support system
+- **asset_requests** - Pengajuan aset baru
+
+**Relasi Database:**
+- One-to-Many antar tabel dengan foreign keys
+- Cascade delete untuk data integrity
+- Index optimization untuk performance
+
+---
+
+## 🔑 Akun Default
+
+### 👨‍💼 Admin
+- **Email:** admin@simtik.com
+- **Password:** password
+- **Role:** Administrator
+
+### 🔧 Teknisi
+- **Email:** teknisi@simtik.com  
+- **Password:** password
+- **Role:** Technician
+
+### 👤 User
+- **Email:** user@simtik.com
+- **Password:** password
+- **Role:** User
+
+---
+
+## 🛠️ Teknologi yang Digunakan
+
+- **Laravel 11** - PHP Framework
+- **Tailwind CSS** - CSS Framework
+- **MySQL** - Database Management
+- **Blade Templates** - Template Engine
+- **Authentication System** - Laravel Breeze
+- **Role-Based Access Control** - Custom Middleware
+
+---
+
+## 🛠️ Tools yang Digunakan
+
+- **XAMPP** - Web Server Environment
+- **VS Code** - Code Editor
+- **phpMyAdmin** - Database Management
+- **Git** - Version Control
+- **GitHub** - Code Repository
+
+---
+
+## 📋 Persyaratan untuk Instalasi
+
+- **PHP 8.2+**
+- **Web Server** (Apache/Nginx)
+- **Database** (MySQL 5.7+/8.0+)
+- **Composer** Package Manager
+- **Node.js & NPM** untuk asset compilation
+- **Web Browser** modern
+
+---
+
+## 🚀 Cara Instalasi
+
+### 1. Persyaratan
+Pastikan terlebih dulu Anda memenuhi persyaratan berikut:
+- PHP versi 8.2 atau lebih tinggi
+- Web Server (Apache/Nginx)
+- Database (MySQL)
+- Composer terinstall
+
+### 2. Clone Repository
+Pertama, clone repository dari GitHub dengan perintah berikut:
+
+```bash
+git clone https://github.com/fadilfauzi/sim-tik-ujikom.git
+```
+
+### 3. Masuk ke Direktori Proyek
+Setelah clone selesai, masuk ke direktori proyek:
+
+```bash
+cd sim-tik-ujikom
+```
+
+### 4. Instalasi Dependensi
+Instal dependensi PHP menggunakan Composer:
+
+```bash
+composer install
+```
+
+Instal dependensi JavaScript menggunakan NPM:
+
+```bash
+npm install
+npm run build
+```
+
+### 5. Salin File .env
+Salin file `.env.example` menjadi `.env`:
+
+```bash
+cp .env.example .env
+```
+
+### 6. Atur Kunci Aplikasi
+Generate kunci aplikasi menggunakan Artisan:
+
+```bash
+php artisan key:generate
+```
+
+### 7. Konfigurasi Database
+Edit file `.env` dan atur konfigurasi database:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=sim_tik
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+### 8. Jalankan Migrations
+Jalankan perintah berikut untuk membuat tabel di database:
+
+```bash
+php artisan migrate
+```
+
+### 9. Seed Data (Opsional)
+Untuk data awal, jalankan seeder:
+
+```bash
+php artisan db:seed
+```
+
+### 10. Jalankan Server
+Jalankan server lokal dengan perintah berikut:
+
+```bash
+php artisan serve
+```
+
+Aplikasi akan tersedia di `http://127.0.0.1:8000`
+
+---
+
+## 🎨 Design & UI/UX
+
+### 🌟 Features
+- **Responsive Design** untuk mobile & desktop
+- **Modern UI** dengan Tailwind CSS
+- **Dark Mode Support** (opsional)
+- **Smooth Animations** dan transisi
+- **POLRES Branding** dengan logo resmi
+- **Accessibility** compliant
+
+### 🎯 User Experience
+- **Intuitive Navigation** yang mudah digunakan
+- **Fast Loading** dengan optimization
+- **Error Handling** yang user-friendly
+- **Form Validation** real-time
+- **Mobile Friendly** interface
+
+---
+
+## 📊 Screenshots
+
+### 🔐 Login Page
+- Logo POLRES Garut sebagai background lingkaran
+- Informasi lengkap Polres Garut
+- Link interaktif ke Google Maps, telepon, dan website
+
+### 📱 Dashboard
+- Overview dengan statistik real-time
+- Quick access ke fitur utama
+- Responsive design untuk berbagai device
+
+---
+
+## 🔒 Security Features
+
+- **Authentication System** dengan Laravel Breeze
+- **Role-Based Access Control** (RBAC)
+- **CSRF Protection** untuk forms
+- **XSS Protection** dengan escaping
+- **SQL Injection Protection** dengan Eloquent ORM
+- **Password Hashing** dengan bcrypt
+
+---
+
+## 📝 Documentation
+
+- **[ERD Database](ERD_SIM-TIK.md)** - Dokumentasi lengkap database
+- **[API Documentation](docs/api.md)** - Endpoint API (jika ada)
+- **[User Guide](docs/user-guide.md)** - Panduan pengguna
+
+---
+
+## 🤝 Contributing
+
+1. Fork repository ini
+2. Buat branch baru (`git checkout -b feature/AmazingFeature`)
+3. Commit perubahan (`git commit -m 'Add some AmazingFeature'`)
+4. Push ke branch (`git push origin feature/AmazingFeature`)
+5. Buka Pull Request
+
+---
+
+## 📞 Support
+
+Untuk bantuan teknis atau pertanyaan, hubungi:
+
+**🏢 POLRES GARUT**
+- **Alamat:** Jl. Jendral Sudirman No.204, Karangpawitan
+- **Telepon:** (0262) 236415
+- **Website:** www.polres-garut.polri.go.id
+
+---
+
+## 📄 License
+
+Proyek ini dilisensikan under the MIT License - lihat file [LICENSE](LICENSE) untuk detail.
+
+---
+
+## ⭐ Acknowledgments
+
+- **POLRES GARUT** - Institusi kepolisian terhormat
+- **Laravel Team** - Framework PHP yang powerful
+- **Tailwind CSS** - CSS framework modern
+- **Open Source Community** - Kontributor dan developer
+
+---
+
+<div align="center">
+
+## 🚔 **SIM-TIK - Polres Garut**  
+
+**Sistem Informasi Manajemen TIK untuk Pelayanan Lebih Baik**
+
+[![GitHub stars](https://img.shields.io/github/stars/fadilfauzi/sim-tik-ujikom?style=social)](https://github.com/fadilfauzi/sim-tik-ujikom/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/fadilfauzi/sim-tik-ujikom?style=social)](https://github.com/fadilfauzi/sim-tik-ujikom/network)
+[![GitHub issues](https://img.shields.io/github/issues/fadilfauzi/sim-tik-ujikom)](https://github.com/fadilfauzi/sim-tik-ujikom/issues)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+</div>
