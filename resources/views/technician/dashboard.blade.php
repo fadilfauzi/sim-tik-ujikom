@@ -21,8 +21,8 @@
         50% { opacity: 0.5; }
     }
     @keyframes glow-pulse { 
-        0%, 100% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.5); } 
-        50% { box-shadow: 0 0 40px rgba(245, 158, 11, 0.8); } 
+        0%, 100% { opacity: 1; } 
+        50% { opacity: 0.8; } 
     }
     @keyframes data-flow { 
         0% { transform: translateX(-100%); } 
@@ -48,8 +48,8 @@
     .section-underline::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 4px; background: linear-gradient(90deg, #f59e0b 0%, #dc2626 100%); border-radius: 9999px; animation: glow-pulse 2s ease-in-out infinite; }
     .stat-value { font-size: 2.75rem; font-weight: 900; letter-spacing: -0.02em; }
     .card-base { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(229, 231, 235, 0.5); }
-    .card-base:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); }
-    .dark .card-base:hover { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
+    .card-base:hover { transform: translateY(-8px); }
+    .dark .card-base:hover { }
 </style>
 
 <x-app-layout>
@@ -90,7 +90,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         <!-- Total Tiket Ditugaskan -->
                         <div class="stat-card group relative">
-                            <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-400 rounded-2xl blur-2xl opacity-60 group-hover:opacity-100 transition-all duration-500"></div>
+                            <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-400 rounded-2xl opacity-20 group-hover:opacity-40 transition-all duration-500"></div>
                             <div class="relative bg-white dark:bg-gray-800 rounded-2xl p-8 card-base border border-gray-100 dark:border-gray-700">
                                 <div class="flex justify-between items-start mb-6">
                                     <div class="flex-1">
@@ -115,7 +115,7 @@
 
                         <!-- Pending Tiket -->
                         <div class="stat-card group relative">
-                            <div class="absolute inset-0 bg-gradient-to-br from-amber-600 to-amber-400 rounded-2xl blur-2xl opacity-60 group-hover:opacity-100 transition-all duration-500"></div>
+                            <div class="absolute inset-0 bg-gradient-to-br from-amber-600 to-amber-400 rounded-2xl opacity-20 group-hover:opacity-40 transition-all duration-500"></div>
                             <div class="relative bg-white dark:bg-gray-800 rounded-2xl p-8 card-base border border-gray-100 dark:border-gray-700">
                                 <div class="flex justify-between items-start mb-6">
                                     <div class="flex-1">
@@ -140,7 +140,7 @@
 
                         <!-- Processing Tiket -->
                         <div class="stat-card group relative">
-                            <div class="absolute inset-0 bg-gradient-to-br from-orange-600 to-orange-400 rounded-2xl blur-2xl opacity-60 group-hover:opacity-100 transition-all duration-500"></div>
+                            <div class="absolute inset-0 bg-gradient-to-br from-orange-600 to-orange-400 rounded-2xl opacity-20 group-hover:opacity-40 transition-all duration-500"></div>
                             <div class="relative bg-white dark:bg-gray-800 rounded-2xl p-8 card-base border border-gray-100 dark:border-gray-700">
                                 <div class="flex justify-between items-start mb-6">
                                     <div class="flex-1">
@@ -165,7 +165,7 @@
 
                         <!-- Done Tiket -->
                         <div class="stat-card group relative">
-                            <div class="absolute inset-0 bg-gradient-to-br from-emerald-600 to-emerald-400 rounded-2xl blur-2xl opacity-60 group-hover:opacity-100 transition-all duration-500"></div>
+                            <div class="absolute inset-0 bg-gradient-to-br from-emerald-600 to-emerald-400 rounded-2xl opacity-20 group-hover:opacity-40 transition-all duration-500"></div>
                             <div class="relative bg-white dark:bg-gray-800 rounded-2xl p-8 card-base border border-gray-100 dark:border-gray-700">
                                 <div class="flex justify-between items-start mb-6">
                                     <div class="flex-1">

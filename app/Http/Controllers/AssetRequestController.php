@@ -33,10 +33,19 @@ class AssetRequestController extends Controller
             'category_id' => 'required|exists:categories,id',
             'reason' => 'required|min:10',
             'notes' => 'nullable',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120', // 5MB
         ]);
 
         $validatedData['user_id'] = auth()->id();
         $validatedData['status'] = 'pending';
+
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+            $path = $image->storeAs('asset-requests', $filename, 'public');
+            $validatedData['image'] = $path;
+        }
 
         AssetRequest::create($validatedData);
 

@@ -92,6 +92,22 @@
                                 {{ $ticket->description }}
                             </div>
                         </div>
+
+                        <!-- Image Upload -->
+                        @if($ticket->image)
+                        <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4 transform transition-all duration-300 hover:scale-105">
+                            <h3 class="text-lg font-bold text-green-900 mb-3 flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                                </svg>
+                                Foto Lampiran
+                            </h3>
+                            <div class="bg-white rounded-lg p-4">
+                                <img src="{{ asset('storage/' . $ticket->image) }}" alt="Foto Laporan" class="max-w-full h-auto rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300" loading="lazy">
+                                <p class="text-sm text-gray-500 mt-3 text-center">📎 {{ basename($ticket->image) }}</p>
+                            </div>
+                        </div>
+                        @endif
                         
                         <!-- Info Grid -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">

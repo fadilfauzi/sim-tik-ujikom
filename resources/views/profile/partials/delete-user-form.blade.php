@@ -234,6 +234,14 @@
     </div>
 
     <script>
+        // Ensure modal is closed on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('delete-modal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        });
+
         // Close modal when clicking outside
         document.getElementById('delete-modal')?.addEventListener('click', function(e) {
             if (e.target === this) {
@@ -244,7 +252,10 @@
         // Close modal on Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
-                document.getElementById('delete-modal').style.display = 'none';
+                const modal = document.getElementById('delete-modal');
+                if (modal) {
+                    modal.style.display = 'none';
+                }
             }
         });
     </script>

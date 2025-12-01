@@ -14,6 +14,7 @@ class AssetRequest extends Model
         'status',
         'reason',
         'notes',
+        'image',
         'user_id',
         'approved_by',
         'approved_at',

@@ -27,7 +27,7 @@
                 <span class="text-lg">📋</span>
                 <span>Pengajuan Saya</span>
             </a>
-            <a href="{{ route('user.lapor.create') }}" class="flex items-center gap-3 px-4 py-2.5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition">
+            <a href="{{ route('tickets.create') }}" class="flex items-center gap-3 px-4 py-2.5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition">
                 <span class="text-lg">➕</span>
                 <span>Lapor Masalah</span>
             </a>
@@ -153,7 +153,7 @@
                     </a>
 
                     <!-- Create Report -->
-                    <a href="{{ route('user.lapor.create') }}" class="bg-green-50 dark:bg-green-900/10 border border-green-200 dark:border-green-900/30 rounded-lg p-8 hover:bg-green-100 dark:hover:bg-green-900/20 transition">
+                    <a href="{{ route('tickets.create') }}" class="bg-green-50 dark:bg-green-900/10 border border-green-200 dark:border-green-900/30 rounded-lg p-8 hover:bg-green-100 dark:hover:bg-green-900/20 transition">
                         <div class="text-4xl mb-4">➕</div>
                         <h3 class="text-xl font-bold text-green-900 dark:text-green-100 mb-2">Buat Laporan Baru</h3>
                         <p class="text-green-700 dark:text-green-300">Laporkan masalah atau kerusakan</p>

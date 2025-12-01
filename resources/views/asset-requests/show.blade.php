@@ -306,6 +306,28 @@
                     </div>
                 @endif
 
+                <!-- Gambar Aset -->
+                @if ($assetRequest->image)
+                    <div class="info-card mb-8">
+                        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                <span>📸</span> Gambar Aset
+                            </h3>
+                            <div class="mt-4">
+                                <div class="relative inline-block max-w-2xl">
+                                    <img src="{{ asset('storage/' . $assetRequest->image) }}" 
+                                         alt="{{ $assetRequest->name }}" 
+                                         class="w-full h-auto rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow duration-300"
+                                         loading="lazy" />
+                                    <div class="mt-3 text-sm text-gray-500 dark:text-gray-400">
+                                        <p>📁 {{ basename($assetRequest->image) }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+
                 <!-- Informasi Persetujuan/Penolakan -->
                 @if ($assetRequest->status !== 'pending')
                     <div class="info-card">

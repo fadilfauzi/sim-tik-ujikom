@@ -5,7 +5,7 @@
     @keyframes slideInLeft { from { opacity: 0; transform: translateX(-60px); } to { opacity: 1; transform: translateX(0); } }
     @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
     @keyframes pulse-subtle { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-    @keyframes glow-pulse { 0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); } 50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.8); } }
+    @keyframes glow-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.8; } }
     @keyframes cyber-scan { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
     @keyframes data-flow { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
     @keyframes border-glow { 0%, 100% { border-color: rgba(59, 130, 246, 0.3); } 50% { border-color: rgba(59, 130, 246, 0.8); } }
@@ -34,8 +34,8 @@
     .section-underline::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 4px; background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%); border-radius: 9999px; animation: glow-pulse 2s ease-in-out infinite; }
     .stat-value { font-size: 2.75rem; font-weight: 900; letter-spacing: -0.02em; }
     .card-base { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(229, 231, 235, 0.5); }
-    .card-base:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); }
-    .dark .card-base:hover { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
+    .card-base:hover { transform: translateY(-8px); }
+    .dark .card-base:hover { }
     .progress-bar { height: 3px; background: #e5e7eb; border-radius: 9999px; overflow: hidden; position: relative; }
     .dark .progress-bar { background: #374151; }
     .progress-fill { height: 100%; border-radius: 9999px; transition: width 1s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative; }
@@ -80,7 +80,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         <!-- Total Aset -->
                         <div class="stat-card group relative">
-                            <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-400 rounded-2xl blur-2xl opacity-60 group-hover:opacity-100 transition-all duration-500"></div>
+                            <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-400 rounded-2xl opacity-20 group-hover:opacity-40 transition-all duration-500"></div>
                             <div class="relative bg-white dark:bg-gray-800 rounded-2xl p-8 card-base border border-gray-100 dark:border-gray-700">
                                 <div class="flex justify-between items-start mb-6">
                                     <div class="flex-1">
@@ -108,7 +108,7 @@
 
                         <!-- Total Tiket -->
                         <div class="stat-card group relative">
-                            <div class="absolute inset-0 bg-gradient-to-br from-green-600 to-green-400 rounded-2xl blur-2xl opacity-60 group-hover:opacity-100 transition-all duration-500"></div>
+                            <div class="absolute inset-0 bg-gradient-to-br from-green-600 to-green-400 rounded-2xl opacity-20 group-hover:opacity-40 transition-all duration-500"></div>
                             <div class="relative bg-white dark:bg-gray-800 rounded-2xl p-8 card-base border border-gray-100 dark:border-gray-700">
                                 <div class="flex justify-between items-start mb-6">
                                     <div class="flex-1">
@@ -136,7 +136,7 @@
 
                         <!-- Pending -->
                         <div class="stat-card group relative">
-                            <div class="absolute inset-0 bg-gradient-to-br from-amber-600 to-amber-400 rounded-2xl blur-2xl opacity-60 group-hover:opacity-100 transition-all duration-500"></div>
+                            <div class="absolute inset-0 bg-gradient-to-br from-amber-600 to-amber-400 rounded-2xl opacity-20 group-hover:opacity-40 transition-all duration-500"></div>
                             <div class="relative bg-white dark:bg-gray-800 rounded-2xl p-8 card-base border border-gray-100 dark:border-gray-700">
                                 <div class="flex justify-between items-start mb-6">
                                     <div class="flex-1">
@@ -164,7 +164,7 @@
 
                         <!-- Processing -->
                         <div class="stat-card group relative">
-                            <div class="absolute inset-0 bg-gradient-to-br from-purple-600 to-purple-400 rounded-2xl blur-2xl opacity-60 group-hover:opacity-100 transition-all duration-500"></div>
+                            <div class="absolute inset-0 bg-gradient-to-br from-purple-600 to-purple-400 rounded-2xl opacity-20 group-hover:opacity-40 transition-all duration-500"></div>
                             <div class="relative bg-white dark:bg-gray-800 rounded-2xl p-8 card-base border border-gray-100 dark:border-gray-700">
                                 <div class="flex justify-between items-start mb-6">
                                     <div class="flex-1">
@@ -276,7 +276,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Tiket Selesai -->
                         <div class="performance-card group relative">
-                            <div class="absolute inset-0 bg-gradient-to-br from-emerald-600 to-teal-500 rounded-2xl blur-2xl opacity-50 group-hover:opacity-80 transition-all duration-500"></div>
+                            <div class="absolute inset-0 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-2xl opacity-20 group-hover:opacity-40 transition-all duration-500"></div>
                             <div class="relative bg-white dark:bg-gray-800 rounded-2xl p-8 card-base border border-gray-100 dark:border-gray-700">
                                 <div class="flex justify-between items-start">
                                     <div>
@@ -298,7 +298,7 @@
 
                         <!-- Total Teknisi -->
                         <div class="performance-card group relative">
-                            <div class="absolute inset-0 bg-gradient-to-br from-indigo-600 to-blue-500 rounded-2xl blur-2xl opacity-50 group-hover:opacity-80 transition-all duration-500"></div>
+                            <div class="absolute inset-0 bg-gradient-to-br from-indigo-600 to-blue-500 rounded-2xl opacity-20 group-hover:opacity-40 transition-all duration-500"></div>
                             <div class="relative bg-white dark:bg-gray-800 rounded-2xl p-8 card-base border border-gray-100 dark:border-gray-700">
                                 <div class="flex justify-between items-start">
                                     <div>
@@ -331,7 +331,7 @@
 
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                         <!-- FORM TAMBAH ASET -->
-                        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+                        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 transition-shadow">
                             <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-200 dark:border-gray-700">
                                 <span class="text-4xl">📦</span>
                                 <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Tambah Aset</h3>
@@ -392,7 +392,7 @@
                         </div>
 
                         <!-- FORM TAMBAH USER -->
-                        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+                        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 transition-shadow">
                             <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-200 dark:border-gray-700">
                                 <span class="text-4xl">👥</span>
                                 <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Tambah User</h3>
@@ -452,7 +452,7 @@
                         </div>
 
                         <!-- FORM TAMBAH KATEGORI -->
-                        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+                        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 transition-shadow">
                             <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-200 dark:border-gray-700">
                                 <span class="text-4xl">🏷️</span>
                                 <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Tambah Kategori</h3>

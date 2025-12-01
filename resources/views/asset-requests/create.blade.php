@@ -301,7 +301,7 @@
                         <p>⚠️ <strong>Penting:</strong> Pengajuan aset akan ditinjau oleh admin. Pastikan informasi yang Anda berikan lengkap dan akurat.</p>
                     </div>
 
-                    <form action="{{ route('asset-requests.store') }}" method="POST" class="space-y-6">
+                    <form action="{{ route('asset-requests.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
                         @csrf
 
                         <!-- Nama Aset -->
@@ -366,6 +366,118 @@
                                 <div class="error-message">{{ $errors->first('notes') }}</div>
                             @endif
                         </div>
+
+                        <!-- Upload Gambar -->
+                        <div class="form-group">
+                            <label for="image" class="form-label">Upload Gambar Aset (Opsional)</label>
+                            <div class="relative">
+                                <input id="image" class="modern-input hidden" type="file" name="image" 
+                                       accept="image/jpeg,image/png,image/jpg,image/gif,image/webp" />
+                                <label for="image" class="flex items-center justify-center w-full px-4 py-8 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg cursor-pointer hover:border-green-500 dark:hover:border-green-500 transition bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600">
+                                    <div class="text-center pointer-events-none">
+                                        <svg class="mx-auto h-12 w-12 text-gray-400 dark:text-gray-500" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-8l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 40h32a4 4 0 004-4V12a4 4 0 00-4-4H8a4 4 0 00-4 4v24a4 4 0 004 4z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        <p class="mt-2 text-sm font-medium text-gray-900 dark:text-gray-100">📸 Klik untuk upload atau seret gambar ke sini</p>
+                                        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">PNG, JPG, GIF atau WEBP (Maks. 5MB)</p>
+                                    </div>
+                                </label>
+                                <div id="image-preview" class="mt-3 hidden">
+                                    <div class="relative w-full max-w-xs">
+                                        <img id="preview-img" src="" alt="Preview" class="w-full h-auto rounded-lg shadow-md" />
+                                        <button type="button" onclick="removeImage(event)" class="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white rounded-full p-2 transition">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="form-hint">Upload foto atau gambar aset untuk dokumentasi</span>
+                            @if ($errors->has('image'))
+                                <div class="error-message">{{ $errors->first('image') }}</div>
+                            @endif
+                        </div>
+
+                        <script>
+                            const imageInput = document.getElementById('image');
+                            const imagePreview = document.getElementById('image-preview');
+                            const previewImg = document.getElementById('preview-img');
+                            const dropZone = document.querySelector('label[for="image"]');
+
+                            // File input change event
+                            imageInput.addEventListener('change', handleImageSelect);
+
+                            function handleImageSelect(e) {
+                                const file = e.target.files[0];
+                                if (file) {
+                                    // Check file size
+                                    if (file.size > 5242880) { // 5MB
+                                        alert('Ukuran file terlalu besar! Maksimal 5MB.');
+                                        imageInput.value = '';
+                                        return;
+                                    }
+
+                                    // Check file type
+                                    const validTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'image/webp'];
+                                    if (!validTypes.includes(file.type)) {
+                                        alert('Format file tidak didukung! Gunakan JPG, PNG, GIF, atau WEBP.');
+                                        imageInput.value = '';
+                                        return;
+                                    }
+
+                                    const reader = new FileReader();
+                                    reader.onload = function(event) {
+                                        previewImg.src = event.target.result;
+                                        imagePreview.classList.remove('hidden');
+                                    };
+                                    reader.readAsDataURL(file);
+                                }
+                            }
+
+                            // Prevent default drag behaviors
+                            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                                dropZone.addEventListener(eventName, preventDefaults, false);
+                                document.body.addEventListener(eventName, preventDefaults, false);
+                            });
+
+                            function preventDefaults(e) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                            }
+
+                            // Highlight drop zone when drag over
+                            ['dragenter', 'dragover'].forEach(eventName => {
+                                dropZone.addEventListener(eventName, () => {
+                                    dropZone.classList.add('border-green-500', 'bg-green-50', 'dark:bg-green-900/20');
+                                }, false);
+                            });
+
+                            ['dragleave', 'drop'].forEach(eventName => {
+                                dropZone.addEventListener(eventName, () => {
+                                    dropZone.classList.remove('border-green-500', 'bg-green-50', 'dark:bg-green-900/20');
+                                }, false);
+                            });
+
+                            // Handle drop
+                            dropZone.addEventListener('drop', (e) => {
+                                const dt = e.dataTransfer;
+                                const files = dt.files;
+                                
+                                if (files.length > 0) {
+                                    imageInput.files = files;
+                                    const event = new Event('change', { bubbles: true });
+                                    imageInput.dispatchEvent(event);
+                                }
+                            }, false);
+
+                            function removeImage(event) {
+                                event.preventDefault();
+                                imageInput.value = '';
+                                imagePreview.classList.add('hidden');
+                                previewImg.src = '';
+                            }
+                        </script>
 
                         <!-- Button Group -->
                         <div class="button-group">
